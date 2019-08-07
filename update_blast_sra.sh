@@ -53,4 +53,25 @@ export PATH="$PATH:scripts/ncbi_data_analysis"
 get_metadata_from_BioSample.py sra_samples_metadata.txt -o \
   sra_samples_metadata.csv
 
+# create main lists of objects, or add objects to existing lists
+if test -f RunInfo.csv
+then
+  tail -n +2 runinfo.csv >> RunInfo.csv
+else
+  cat runinfo.csv >> RunInfo.csv
+fi
+rm runinfo.csv
+
+cat sra_samples_metadata.txt >> SRA_metadata.txt
+rm sra_samples_metadata.txt
+
+if test -f SRA_metadata_tab.csv
+then
+  tail -n +2 sra_samples_metadata.csv >> SRA_metadata_tab.csv
+else
+  cat sra_samples_metadata.csv >> SRA_metadata_tab.csv
+fi
+rm sra_samples_metadata.csv
+rm sra_samples.txt
+
 # end
