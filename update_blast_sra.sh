@@ -1,16 +1,18 @@
+#!/bin/bash
+
+# test if file with SRA accessions is provided
+if [ -z $1 ]
+then
+  echo "Please provide file with SRA accessions ['bash update_blast_nt.sh <file>']"
+  exit $ERRCODE
+fi
 
 # Set the path to the local SRA databases
 SRA_PATH="$HOME/databases/sra" # change the path if necessary
+mkdir -p $SRA_PATH
 
 # select SRA objects to download
-declare -a arr=( \
-  "SRP106137"
-  "SRP148435"
-  "SRP106691"
-  "SRP034435"
-  "SRP043706"
-  "PRJNA386947"
-)
+readarray arr < $1
 
 # get metadata of SRA objects from NCBI
 echo -n > runinfo.csv 
