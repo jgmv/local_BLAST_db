@@ -1,4 +1,4 @@
-#local_BLAST_db
+# local_BLAST_db
 Create or update a local BLAST database, including aliases for comparison of
 fungal sequences.
 
