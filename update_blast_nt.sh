@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the path to the local BLAST databases
-BLAST_PATH="$HOME/databases/blast" # change the path if necessary
+BLAST_PATH="$HOME/ncbi/blast" # change the path if necessary
 
 # download necessary scripts from GitHub
 if test -f ./scripts/search_ncbi_gi_by_term.py
