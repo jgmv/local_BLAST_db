@@ -42,31 +42,31 @@ for i in $(ls $BLAST_PATH/*.tar); do tar -xf $i -C $BLAST_PATH; rm $i; done
 #  -out $BLAST_PATH/eukSeq -title "Eukaryota sequences"
 
 # Create alias containing only fungal sequences (fungalSeq)
-python search_ncbi_gi_by_term.py "Fungi[Organism] NOT Genome NOT Chromosome" \
+search_ncbi_gi_by_term.py "Fungi[Organism] NOT Genome NOT Chromosome" \
   -o $BLAST_PATH/fungalSeq.gi
 blastdb_aliastool -db nt -gilist $BLAST_PATH/fungalSeq.gi -dbtype nucl \
  -out $BLAST_PATH/fungalSeq -title "Fungal sequences"
 
 # Create alias containing only fungal ITS sequences (fungalITS)
-python search_ncbi_gi_by_term.py "Fungi[Organism] AND (internal transcribed spacer OR ITS OR ITS1 OR ITS2) NOT Genome NOT Chromosome" \
+search_ncbi_gi_by_term.py "Fungi[Organism] AND (internal transcribed spacer OR ITS OR ITS1 OR ITS2) NOT Genome NOT Chromosome" \
   -o $BLAST_PATH/fungalITS.gi
 blastdb_aliastool -db nt -gilist $BLAST_PATH/fungalITS.gi -dbtype nucl \
   -out $BLAST_PATH/fungalITS -title "Fungal ITS sequences"
 
 # Create alias containing only fungal ITS sequences with full species names (fungalITS-id)
-python search_ncbi_gi_by_term.py "Fungi[Organism] AND (internal transcribed spacer OR ITS OR ITS1 OR ITS2) NOT uncultured NOT fungus NOT endophytic NOT sp. NOT sp NOT cf NOT cf. NOT aff NOT aff. NOT mycorrhizal NOT Genome NOT Chromosome" \
+search_ncbi_gi_by_term.py "Fungi[Organism] AND (internal transcribed spacer OR ITS OR ITS1 OR ITS2) NOT uncultured NOT fungus NOT endophytic NOT sp. NOT sp NOT cf NOT cf. NOT aff NOT aff. NOT mycorrhizal NOT Genome NOT Chromosome" \
   -o $BLAST_PATH/fungalITS-id.gi
 blastdb_aliastool -db nt -gilist $BLAST_PATH/fungalITS-id.gi -dbtype nucl \
   -out $BLAST_PATH/fungalITS-id -title "Fungal ITS sequences with full species names"
 
 # Create alias containing only fungal sequences from fungal strains in reference collections (fungalRefs)
-python search_ncbi_gi_by_term.py "Fungi[Organism] AND (CBS OR NRRL OR AFTOL) NOT Genome NOT Chromosome NOT Environmental NOT Uncultured" \
+search_ncbi_gi_by_term.py "Fungi[Organism] AND (CBS OR NRRL OR AFTOL) NOT Genome NOT Chromosome NOT Environmental NOT Uncultured" \
   -o $BLAST_PATH/fungalRefs.gi
 blastdb_aliastool -db nt -gilist $BLAST_PATH/fungalRefs.gi -dbtype nucl \
   -out $BLAST_PATH/fungalRefs -title "Fungal strains in reference collections"
 
 # Create alias containing only fungal sequences from fungal type material (fungalType)
-python search_ncbi_gi_by_term.py "Fungi[Organism] AND type material NOT Genome NOT Chromosome NOT Environmental NOT Uncultured" \
+search_ncbi_gi_by_term.py "Fungi[Organism] AND type material NOT Genome NOT Chromosome NOT Environmental NOT Uncultured" \
   -o $BLAST_PATH/fungalType.gi
 blastdb_aliastool -db nt -gilist $BLAST_PATH/fungalType.gi -dbtype nucl \
   -out $BLAST_PATH/fungalType -title "Sequences from fungal type material"
