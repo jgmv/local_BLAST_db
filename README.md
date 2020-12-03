@@ -14,4 +14,4 @@ The script also prepares aliases of the database for particular searches. These 
 * `eukSeq`: Eukaryote sequences.
 
 ### update_blast_sra.sh
-Prepares a local database with selected SRA objects selected. Selected objects can be added to the list within the script, where `# select SRA objects to download`.  
+Prepares a local database with selected SRA objects. Selected objects can be added to the list within the script, where `# select SRA objects to download`.  
